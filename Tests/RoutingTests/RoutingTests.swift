@@ -15,6 +15,13 @@ final class RoutingTests: XCTestCase {
         super.tearDown()
     }
     
+    func testReplace() {
+        router.routeTo(.viewA)
+        router.replace(.viewB)
+        
+        XCTAssertEqual(router.path.count, 1)
+    }
+    
     func testPush() {
         router.routeTo(.viewA)
         

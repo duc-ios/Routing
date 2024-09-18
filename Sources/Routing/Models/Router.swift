@@ -34,6 +34,14 @@ public class Router<Destination: Routable>: ObservableObject {
         }
     }
     
+    // Replace current screen with the specified `Routable`.
+    public func replace(_ route: Destination) {
+        if !path.isEmpty {
+            path.removeLast()
+        }
+        path.append(route)
+    }
+    
     // Pop to the root screen in our hierarchy
     public func popToRoot() {
         path.removeLast(path.count)
